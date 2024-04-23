@@ -1,5 +1,9 @@
 # `tyco` - crate for creating scoped TYped COntexts.
 
+[![Crates.io](https://img.shields.io/crates/v/tyco)](https://crates.io/crates/tyco)
+[![docs.rs](https://img.shields.io/docsrs/tyco/latest)](https://docs.rs/tyco/latest)
+![CI](https://github.com/Flowneee/tyco/actions/workflows/ci.yml/badge.svg)
+
 This crate allows you to define and store typed information in current execution context (sync or async) and
 pass it down call stack without explicitely speicfying it in function arguments. This is helpful for implementing
 some additional functionality without main business logic messing up your main business logic code.

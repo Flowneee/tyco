@@ -77,6 +77,10 @@ pub trait TypedContext: Clone + 'static {
     ///
     /// This function is mainly used for [`FutureExt`] implementation and should
     /// not be used by user (or used with great caution !!!).
+    ///
+    /// # Safety
+    ///
+    /// Incorrect usage might lead to segfault.
     unsafe fn attach_ref(&self) -> ContextRefGuard<Self> {
         let static_ref: &'static Self = unsafe { &*(self as *const Self) };
         let previous_value = Self::TLS
@@ -161,10 +165,7 @@ pub trait FutureExt: Sized {
     ///
     /// Primarily used with return value of [`TypedContext::current`].
     fn with_opt<T>(self, value: Option<T>) -> WithContext<Self, T> {
-        WithContext {
-            inner: self,
-            value: value.into(),
-        }
+        WithContext { inner: self, value }
     }
 
     /// Take current context and set is as context for a future.

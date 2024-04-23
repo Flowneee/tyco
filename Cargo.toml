@@ -1,11 +1,12 @@
 [package]
 name = "tyco"
-description = "Macro for generating typed task contexts"
+description = "Macro for generating scoped TYped COntexts"
 version = "0.0.9"
 edition = "2021"
 readme = "README.md"
 license = "MIT"
 authors = ["Andrey Kononov flowneee3@gmail.com"]
+repository = "https://github.com/Flowneee/tyco"
 
 [dependencies]
 async-trait = "0.1"
@@ -14,5 +15,5 @@ pin-project-lite = "0.2"
 [dev-dependencies]
 tokio = { version = "1", features = ["full"] }
 axum = "0.7"
-tower = "*"
-reqwest = "*"
+tower = "0.4"
+reqwest = "0.12"
